@@ -1,4 +1,3 @@
-import React from 'react'
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const Footer = () => {
@@ -8,7 +7,7 @@ const Footer = () => {
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Information Section */}
-          <div className="font-plus-jakarta lg:mt-13">
+          <div className="font-plus-jakarta lg:mt-13 -mt-10 md:mt-20">
             <div className="flex flex-col gap-2">
               <a href="mailto:hello@teespace.io" className="text-gray-500 hover:text-gray-800 transition-colors text-sm">
                 hello@teespace.io

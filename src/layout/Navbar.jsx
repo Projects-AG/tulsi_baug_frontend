@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaSearch, FaPhoneAlt, FaMapMarkerAlt, FaHeart, FaShoppingCart, FaTwitter, FaFacebookF, FaInstagram, FaYoutube, FaBars, FaTimes } from 'react-icons/fa'
-import { CiLocationOn } from "react-icons/ci";
+import { CiLocationOn, CiStar } from "react-icons/ci";
 import { TbPhoneCall } from "react-icons/tb";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { PiHandbag } from "react-icons/pi";
 
 
 const Navbar = () => {
@@ -19,7 +20,7 @@ const Navbar = () => {
               <CiLocationOn className="text-black text-base sm:text-lg" />
               <span>Find a Store</span>
             </div>
-            <div className="hidden sm:flex gap-4">
+            <div className="flex gap-4">
               <a href="#" aria-label="Twitter" className="text-gray-800 text-base hover:text-gray-600 transition-colors">
                 <FaTwitter />
               </a>
@@ -51,7 +52,7 @@ const Navbar = () => {
             </button>
 
             {/* Search Section */}
-            <div className="flex-1 order-3 lg:order-1 w-full lg:w-auto lg:max-w-[500px] mx-auto lg:mx-0 lg:ml-65 lg:mr-8">
+            <div className="flex-1 order-1 lg:order-1 w-full lg:w-auto lg:max-w-[500px] mx-auto lg:mx-0 lg:ml-65 lg:mr-8">
               <div className="relative flex items-center">
                 <div className="flex items-center flex-1 border border-white rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 bg-white shadow-sm">
                   <FaSearch className="text-gray-400 text-base sm:text-lg mr-2" />
@@ -68,7 +69,7 @@ const Navbar = () => {
             </div>
 
             {/* Contact & Actions */}
-            <div className="flex justify-end gap-2 sm:gap-4 lg:gap-6 order-2 lg:order-2">
+            <div className="flex justify-end gap-2 sm:gap-4 lg:gap-6 order-3 lg:order-2">
               {/* Phone - Hidden on mobile */}
               <div className="hidden md:flex items-center gap-2.5">
                 <TbPhoneCall className="text-xl lg:text-2xl text-gray-800" />
@@ -80,25 +81,29 @@ const Navbar = () => {
 
               <div className="flex items-center gap-2 sm:gap-3">
                 <button className="hidden sm:block bg-transparent border-none text-lg sm:text-xl text-gray-800 cursor-pointer p-1.5 sm:p-2 hover:text-gray-600 transition-colors" aria-label="Location">
-                  <FaMapMarkerAlt />
+                  <CiLocationOn className="text-black text-base sm:text-lg" />
                 </button>
                 <button className="relative bg-transparent border-none text-lg sm:text-xl text-gray-800 cursor-pointer p-1.5 sm:p-2 hover:text-gray-600 transition-colors" aria-label="Wishlist">
-                  <FaHeart />
+                  <CiStar />
                   <span className="absolute top-0 right-0 bg-[#90c84d] text-white text-[9px] sm:text-[10px] font-bold rounded-full w-4 h-4 sm:w-[18px] sm:h-[18px] flex items-center justify-center">
                     0
                   </span>
                 </button>
+                <Link to="/track-order-3">
                 <button className="relative bg-transparent border-none text-lg sm:text-xl text-gray-800 cursor-pointer p-1.5 sm:p-2 hover:text-gray-600 transition-colors" aria-label="Cart">
-                  <FaShoppingCart />
+                  <PiHandbag />
                   <span className="absolute top-0 right-0 bg-[#90c84d] text-white text-[9px] sm:text-[10px] font-bold rounded-full w-4 h-4 sm:w-[18px] sm:h-[18px] flex items-center justify-center">
                     0
                   </span>
                 </button>
+                </Link>
               </div>
 
+              <Link to="/signin">
               <button className="hidden sm:block bg-[#90c84d] text-white border-none px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5 lg:py-3 rounded-lg text-xs sm:text-sm font-semibold cursor-pointer hover:bg-[#7fb23d] transition-colors whitespace-nowrap shadow-xl">
                 Sign Up
               </button>
+              </Link>
             </div>
           </div>
         </div>
