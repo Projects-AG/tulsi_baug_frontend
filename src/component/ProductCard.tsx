@@ -265,34 +265,34 @@ const products: Product[] = [
 
 const ProductCard = () => {
   return (
-    <section className="py-14 bg-white">
-      <div className="max-w-[1300px] mx-auto px-4 sm:px-6 md:px-8">
+    <section className="py-6 sm:py-10 lg:py-14 bg-white">
+      <div className="max-w-[1300px] mx-auto px-3 sm:px-6 md:px-8">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row justify-between items-center mb-10">
-          <h2 className="text-[24px] sm:text-[32px] font-bold text-center sm:text-left">Sare / Ethnic Dress</h2>
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-8 lg:mb-10">
+          <h2 className="text-lg sm:text-2xl lg:text-[32px] font-bold text-center sm:text-left">Sare / Ethnic Dress</h2>
           <a className="text-pink-500 font-medium hover:underline mt-4 sm:mt-0">See More →</a>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 lg:gap-4">
          {products.filter((p) => p.id >= 1 && p.id <= 5).map((p) => (
             <div
               key={p.id}
               className="transition transform hover:scale-105"
             >
               {/* Image */}
-              <div className="relative p-2 sm:p-4">
-                <div className="w-full h-[90px] sm:h-[181px] overflow-hidden rounded-xl">
+              <div className="relative p-1 sm:p-3 lg:p-4">
+                <div className="w-full h-[140px] sm:h-[160px] lg:h-[181px] overflow-hidden rounded-lg sm:rounded-xl">
                   <img
                     src={p.img}
                     alt=""
-                    className="w-full h-[180px] sm:h-[220px] object-cover object-top"
+                    className="w-full h-[140px] sm:h-[180px] lg:h-[220px] object-cover object-top"
                   />
                 </div>
 
                 {p.badge && (
                   <span
-                    className={`absolute top-[20px] left-[15px] w-[40px] h-[20px] bg-[#2EBB77] text-white text-[10px] font-semibold px-1 py-0.5 rounded-[3px]`}
+                    className={`absolute top-[10px] sm:top-[20px] left-[8px] sm:left-[15px] w-[35px] sm:w-[40px] h-[18px] sm:h-[20px] bg-[#2EBB77] text-white text-[8px] sm:text-[10px] font-semibold px-1 py-0.5 rounded-[3px]`}
                   >
                     {p.badge}
                   </span>
@@ -300,7 +300,7 @@ const ProductCard = () => {
 
                 {p.badge1 && (
                   <span
-                    className="absolute top-[45px] left-[15px] w-[40px] h-[20px] bg-[#B479D9] text-white text-[10px] font-semibold px-1 py-0.5 rounded-[3px]"
+                    className="absolute top-[32px] sm:top-[45px] left-[8px] sm:left-[15px] w-[35px] sm:w-[40px] h-[18px] sm:h-[20px] bg-[#B479D9] text-white text-[8px] sm:text-[10px] font-semibold px-1 py-0.5 rounded-[3px]"
                   >
                     {p.badge1}
                   </span>
@@ -308,34 +308,34 @@ const ProductCard = () => {
 
                 {p.badgeout && (
                   <span
-                    className="absolute top-[-5px] left-[-5px] w-[50px] h-[25px] bg-[#F74B81] text-white text-[10px] font-semibold px-1 py-0.5 rounded-tl-[10px] rounded-br-[15px] flex items-center justify-center"
+                    className="absolute top-[-5px] left-[-5px] w-[45px] sm:w-[50px] h-[22px] sm:h-[25px] bg-[#F74B81] text-white text-[8px] sm:text-[10px] font-semibold px-1 py-0.5 rounded-tl-[10px] rounded-br-[15px] flex items-center justify-center"
                   >
                     {p.badgeout}
                   </span>
                 )}
               </div>
 
-              <div className="px-2 sm:px-4 pb-2 sm:pb-4">
-                <p className="text-[10px] sm:text-sm text-gray-400 mb-1">Snack</p>
+              <div className="px-1.5 sm:px-3 lg:px-4 pb-2 sm:pb-3 lg:pb-4">
+                <p className="text-[9px] sm:text-xs lg:text-sm text-gray-400 mb-0.5 sm:mb-1">Snack</p>
 
-                <h3 className="font-bold text-[14px] sm:text-lg">{p.title}</h3>
-                <p className="text-[12px] sm:text-sm">{p.subtitle}</p>
+                <h3 className="font-bold text-[12px] sm:text-base lg:text-lg">{p.title}</h3>
+                <p className="text-[11px] sm:text-sm">{p.subtitle}</p>
 
-                <div className="flex items-center gap-1 my-2 text-yellow-400 text-[10px] sm:text-sm">
+                <div className="flex items-center gap-1 my-1 sm:my-2 text-yellow-400 text-[9px] sm:text-xs lg:text-sm">
                   ★ <span className="text-gray-500">({p.rating})</span>
                 </div>
 
-                <p className="text-[10px] sm:text-xs text-gray-500 mb-2 sm:mb-3">By NestFood</p>
+                <p className="text-[9px] sm:text-[10px] lg:text-xs text-gray-500 mb-1.5 sm:mb-2 lg:mb-3">By NestFood</p>
 
                 <div className="flex justify-between items-center">
                   <div>
-                    <span className="font-bold text-[14px] sm:text-lg">{p.price}</span>
-                    <span className="text-[10px] sm:text-sm line-through text-gray-400 ml-1 sm:ml-2">
+                    <span className="font-bold text-[12px] sm:text-base lg:text-lg">{p.price}</span>
+                    <span className="text-[9px] sm:text-xs lg:text-sm line-through text-gray-400 ml-1 sm:ml-2">
                       {p.oldPrice}
                     </span>
                   </div>
 
-                  <button className="bg-[#FF5A5F] hover:bg-[#E94E4E] text-white text-[10px] sm:text-sm px-2 sm:px-4 py-1 sm:py-2 rounded-lg flex items-center gap-1 sm:gap-2">
+                  <button className="bg-[#FF5A5F] hover:bg-[#E94E4E] text-white text-[9px] sm:text-xs lg:text-sm px-1.5 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 rounded-md sm:rounded-lg flex items-center gap-0.5 sm:gap-1 lg:gap-2">
                     <FaShoppingCart />
                     Add
                   </button>
@@ -347,26 +347,26 @@ const ProductCard = () => {
       </div>
 
       {/* Short Kurti Section */}
-      <div className="w-full px-4 sm:px-6 md:px-8 bg-[#75BD4B0F] mt-16">
-        <h3 className="text-[24px] sm:text-[32px] font-bold text-center sm:text-left mb-6">Short Kurti</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      <div className="w-full px-3 sm:px-6 md:px-8 bg-[#75BD4B0F] mt-8 sm:mt-12 lg:mt-16 py-4 sm:py-6 lg:py-8">
+        <h3 className="text-lg sm:text-2xl lg:text-[32px] font-bold text-center sm:text-left mb-4 sm:mb-8 lg:mb-10">Short Kurti</h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 lg:gap-4">
           {products.filter((p) => p.id >= 6 && p.id <= 10).map((p) => (
             <div
               key={p.id}
               className="transition transform hover:scale-105"
             >
-              <div className="relative p-2 sm:p-4">
-                <div className="w-full h-[90px] sm:h-[181px] overflow-hidden rounded-xl">
+              <div className="relative p-1 sm:p-3 lg:p-4">
+                <div className="w-full h-[140px] sm:h-[160px] lg:h-[181px] overflow-hidden rounded-lg sm:rounded-xl">
                   <img
                     src={p.img}
                     alt=""
-                    className="w-full h-[180px] sm:h-[220px] object-cover object-top"
+                    className="w-full h-[140px] sm:h-[180px] lg:h-[220px] object-cover object-top"
                   />
                 </div>
 
                 {p.badge && (
                   <span
-                    className={`absolute top-[20px] left-[15px] w-[40px] h-[20px] bg-[#2EBB77] text-white text-[10px] font-semibold px-1 py-0.5 rounded-[3px]`}
+                    className={`absolute top-[10px] sm:top-[20px] left-[8px] sm:left-[15px] w-[35px] sm:w-[40px] h-[18px] sm:h-[20px] bg-[#2EBB77] text-white text-[8px] sm:text-[10px] font-semibold px-1 py-0.5 rounded-[3px]`}
                   >
                     {p.badge}
                   </span>
@@ -374,7 +374,7 @@ const ProductCard = () => {
 
                 {p.badge1 && (
                   <span
-                    className="absolute top-[45px] left-[15px] w-[40px] h-[20px] bg-[#B479D9] text-white text-[10px] font-semibold px-1 py-0.5 rounded-[3px]"
+                    className="absolute top-[32px] sm:top-[45px] left-[8px] sm:left-[15px] w-[35px] sm:w-[40px] h-[18px] sm:h-[20px] bg-[#B479D9] text-white text-[8px] sm:text-[10px] font-semibold px-1 py-0.5 rounded-[3px]"
                   >
                     {p.badge1}
                   </span>
@@ -382,34 +382,34 @@ const ProductCard = () => {
 
                 {p.badgeout && (
                   <span
-                    className="absolute top-[-5px] left-[-5px] w-[50px] h-[25px] bg-[#F74B81] text-white text-[10px] font-semibold px-1 py-0.5 rounded-tl-[10px] rounded-br-[15px] flex items-center justify-center"
+                    className="absolute top-[-5px] left-[-5px] w-[45px] sm:w-[50px] h-[22px] sm:h-[25px] bg-[#F74B81] text-white text-[8px] sm:text-[10px] font-semibold px-1 py-0.5 rounded-tl-[10px] rounded-br-[15px] flex items-center justify-center"
                   >
                     {p.badgeout}
                   </span>
                 )}
               </div>
 
-              <div className="px-2 sm:px-4 pb-2 sm:pb-4">
-                <p className="text-[10px] sm:text-sm text-gray-400 mb-1">Snack</p>
+              <div className="px-1.5 sm:px-3 lg:px-4 pb-2 sm:pb-3 lg:pb-4">
+                <p className="text-[9px] sm:text-xs lg:text-sm text-gray-400 mb-0.5 sm:mb-1">Snack</p>
 
-                <h3 className="font-bold text-[14px] sm:text-lg">{p.title}</h3>
-                <p className="text-[12px] sm:text-sm">{p.subtitle}</p>
+                <h3 className="font-bold text-[12px] sm:text-base lg:text-lg">{p.title}</h3>
+                <p className="text-[11px] sm:text-sm">{p.subtitle}</p>
 
-                <div className="flex items-center gap-1 my-2 text-yellow-400 text-[10px] sm:text-sm">
+                <div className="flex items-center gap-1 my-1 sm:my-2 text-yellow-400 text-[9px] sm:text-xs lg:text-sm">
                   ★ <span className="text-gray-500">({p.rating})</span>
                 </div>
 
-                <p className="text-[10px] sm:text-xs text-gray-500 mb-2 sm:mb-3">By NestFood</p>
+                <p className="text-[9px] sm:text-[10px] lg:text-xs text-gray-500 mb-1.5 sm:mb-2 lg:mb-3">By NestFood</p>
 
                 <div className="flex justify-between items-center">
                   <div>
-                    <span className="font-bold text-[14px] sm:text-lg">{p.price}</span>
-                    <span className="text-[10px] sm:text-sm line-through text-gray-400 ml-1 sm:ml-2">
+                    <span className="font-bold text-[12px] sm:text-base lg:text-lg">{p.price}</span>
+                    <span className="text-[9px] sm:text-xs lg:text-sm line-through text-gray-400 ml-1 sm:ml-2">
                       {p.oldPrice}
                     </span>
                   </div>
 
-                  <button className="bg-[#FF5A5F] hover:bg-[#E94E4E] text-white text-[10px] sm:text-sm px-2 sm:px-4 py-1 sm:py-2 rounded-lg flex items-center gap-1 sm:gap-2">
+                  <button className="bg-[#FF5A5F] hover:bg-[#E94E4E] text-white text-[9px] sm:text-xs lg:text-sm px-1.5 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 rounded-md sm:rounded-lg flex items-center gap-0.5 sm:gap-1 lg:gap-2">
                     <FaShoppingCart />
                     Add
                   </button>
@@ -422,33 +422,33 @@ const ProductCard = () => {
       
       
       {/* Formal Shirts Section */}
-      <div className="max-w-[1300px] mx-auto px-4 sm:px-6 md:px-8">
+      <div className="max-w-[1300px] mx-auto px-3 sm:px-6 md:px-8 mt-8 sm:mt-12 lg:mt-16">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row justify-between items-center mb-10">
-          <h2 className="text-[24px] sm:text-[32px] font-bold text-center sm:text-left">Formal Shirts</h2>
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-8 lg:mb-10">
+          <h2 className="text-lg sm:text-2xl lg:text-[32px] font-bold text-center sm:text-left">Formal Shirts</h2>
           <a className="text-pink-500 font-medium hover:underline mt-4 sm:mt-0">See More →</a>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 lg:gap-4">
          {products.filter((p) => p.id >= 11 && p.id <= 15).map((p) => (
             <div
               key={p.id}
               className="transition transform hover:scale-105"
             >
               {/* Image */}
-              <div className="relative p-2 sm:p-4">
-                <div className="w-full h-[90px] sm:h-[181px] overflow-hidden rounded-xl">
+              <div className="relative p-1 sm:p-3 lg:p-4">
+                <div className="w-full h-[140px] sm:h-[160px] lg:h-[181px] overflow-hidden rounded-lg sm:rounded-xl">
                   <img
                     src={p.img}
                     alt=""
-                    className="w-full h-[180px] sm:h-[220px] object-cover object-top"
+                    className="w-full h-[140px] sm:h-[180px] lg:h-[220px] object-cover object-top"
                   />
                 </div>
 
                 {p.badge && (
                   <span
-                    className={`absolute top-[20px] left-[15px] w-[40px] h-[20px] bg-[#2EBB77] text-white text-[10px] font-semibold px-1 py-0.5 rounded-[3px]`}
+                    className={`absolute top-[10px] sm:top-[20px] left-[8px] sm:left-[15px] w-[35px] sm:w-[40px] h-[18px] sm:h-[20px] bg-[#2EBB77] text-white text-[8px] sm:text-[10px] font-semibold px-1 py-0.5 rounded-[3px]`}
                   >
                     {p.badge}
                   </span>
@@ -456,7 +456,7 @@ const ProductCard = () => {
 
                 {p.badge1 && (
                   <span
-                    className="absolute top-[45px] left-[15px] w-[40px] h-[20px] bg-[#B479D9] text-white text-[10px] font-semibold px-1 py-0.5 rounded-[3px]"
+                    className="absolute top-[32px] sm:top-[45px] left-[8px] sm:left-[15px] w-[35px] sm:w-[40px] h-[18px] sm:h-[20px] bg-[#B479D9] text-white text-[8px] sm:text-[10px] font-semibold px-1 py-0.5 rounded-[3px]"
                   >
                     {p.badge1}
                   </span>
@@ -464,34 +464,34 @@ const ProductCard = () => {
 
                 {p.badgeout && (
                   <span
-                    className="absolute top-[-5px] left-[-5px] w-[50px] h-[25px] bg-[#F74B81] text-white text-[10px] font-semibold px-1 py-0.5 rounded-tl-[10px] rounded-br-[15px] flex items-center justify-center"
+                    className="absolute top-[-5px] left-[-5px] w-[45px] sm:w-[50px] h-[22px] sm:h-[25px] bg-[#F74B81] text-white text-[8px] sm:text-[10px] font-semibold px-1 py-0.5 rounded-tl-[10px] rounded-br-[15px] flex items-center justify-center"
                   >
                     {p.badgeout}
                   </span>
                 )}
               </div>
 
-              <div className="px-2 sm:px-4 pb-2 sm:pb-4">
-                <p className="text-[10px] sm:text-sm text-gray-400 mb-1">Snack</p>
+              <div className="px-1.5 sm:px-3 lg:px-4 pb-2 sm:pb-3 lg:pb-4">
+                <p className="text-[9px] sm:text-xs lg:text-sm text-gray-400 mb-0.5 sm:mb-1">Snack</p>
 
-                <h3 className="font-bold text-[14px] sm:text-lg">{p.title}</h3>
-                <p className="text-[12px] sm:text-sm">{p.subtitle}</p>
+                <h3 className="font-bold text-[12px] sm:text-base lg:text-lg">{p.title}</h3>
+                <p className="text-[11px] sm:text-sm">{p.subtitle}</p>
 
-                <div className="flex items-center gap-1 my-2 text-yellow-400 text-[10px] sm:text-sm">
+                <div className="flex items-center gap-1 my-1 sm:my-2 text-yellow-400 text-[9px] sm:text-xs lg:text-sm">
                   ★ <span className="text-gray-500">({p.rating})</span>
                 </div>
 
-                <p className="text-[10px] sm:text-xs text-gray-500 mb-2 sm:mb-3">By NestFood</p>
+                <p className="text-[9px] sm:text-[10px] lg:text-xs text-gray-500 mb-1.5 sm:mb-2 lg:mb-3">By NestFood</p>
 
                 <div className="flex justify-between items-center">
                   <div>
-                    <span className="font-bold text-[14px] sm:text-lg">{p.price}</span>
-                    <span className="text-[10px] sm:text-sm line-through text-gray-400 ml-1 sm:ml-2">
+                    <span className="font-bold text-[12px] sm:text-base lg:text-lg">{p.price}</span>
+                    <span className="text-[9px] sm:text-xs lg:text-sm line-through text-gray-400 ml-1 sm:ml-2">
                       {p.oldPrice}
                     </span>
                   </div>
 
-                  <button className="bg-[#FF5A5F] hover:bg-[#E94E4E] text-white text-[10px] sm:text-sm px-2 sm:px-4 py-1 sm:py-2 rounded-lg flex items-center gap-1 sm:gap-2">
+                  <button className="bg-[#FF5A5F] hover:bg-[#E94E4E] text-white text-[9px] sm:text-xs lg:text-sm px-1.5 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 rounded-md sm:rounded-lg flex items-center gap-0.5 sm:gap-1 lg:gap-2">
                     <FaShoppingCart />
                     Add
                   </button>
@@ -503,26 +503,26 @@ const ProductCard = () => {
       </div>
 
       {/* Dress Section */}
-      <div className="w-full px-4 sm:px-6 md:px-8 bg-[#E84F300A] mt-16">
-        <h3 className="text-[24px] sm:text-[32px] font-bold text-center sm:text-left mb-6">Dress</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      <div className="w-full px-3 sm:px-6 md:px-8 bg-[#E84F300A] mt-8 sm:mt-12 lg:mt-16 py-4 sm:py-6 lg:py-8">
+        <h3 className="text-lg sm:text-2xl lg:text-[32px] font-bold text-center sm:text-left mb-4 sm:mb-8 lg:mb-10">Dress</h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 lg:gap-4">
           {products.filter((p) => p.id >= 16 && p.id <= 20).map((p) => (
             <div
               key={p.id}
               className="transition transform hover:scale-105"
             >
-              <div className="relative p-2 sm:p-4">
-                <div className="w-full h-[90px] sm:h-[181px] overflow-hidden rounded-xl">
+              <div className="relative p-1 sm:p-3 lg:p-4">
+                <div className="w-full h-[140px] sm:h-[160px] lg:h-[181px] overflow-hidden rounded-lg sm:rounded-xl">
                   <img
                     src={p.img}
                     alt=""
-                    className="w-full h-[180px] sm:h-[182px] object-cover object-top"
+                    className="w-full h-[140px] sm:h-[180px] lg:h-[220px] object-cover object-top"
                   />
                 </div>
 
                 {p.badge && (
                   <span
-                    className={`absolute top-[20px] left-[15px] w-[40px] h-[20px] bg-[#2EBB77] text-white text-[10px] font-semibold px-1 py-0.5 rounded-[3px]`}
+                    className={`absolute top-[10px] sm:top-[20px] left-[8px] sm:left-[15px] w-[35px] sm:w-[40px] h-[18px] sm:h-[20px] bg-[#2EBB77] text-white text-[8px] sm:text-[10px] font-semibold px-1 py-0.5 rounded-[3px]`}
                   >
                     {p.badge}
                   </span>
@@ -530,7 +530,7 @@ const ProductCard = () => {
 
                 {p.badge1 && (
                   <span
-                    className="absolute top-[45px] left-[15px] w-[40px] h-[20px] bg-[#B479D9] text-white text-[10px] font-semibold px-1 py-0.5 rounded-[3px]"
+                    className="absolute top-[32px] sm:top-[45px] left-[8px] sm:left-[15px] w-[35px] sm:w-[40px] h-[18px] sm:h-[20px] bg-[#B479D9] text-white text-[8px] sm:text-[10px] font-semibold px-1 py-0.5 rounded-[3px]"
                   >
                     {p.badge1}
                   </span>
@@ -538,34 +538,34 @@ const ProductCard = () => {
 
                 {p.badgeout && (
                   <span
-                    className="absolute top-[-5px] left-[-5px] w-[50px] h-[25px] bg-[#F74B81] text-white text-[10px] font-semibold px-1 py-0.5 rounded-tl-[10px] rounded-br-[15px] flex items-center justify-center"
+                    className="absolute top-[-5px] left-[-5px] w-[45px] sm:w-[50px] h-[22px] sm:h-[25px] bg-[#F74B81] text-white text-[8px] sm:text-[10px] font-semibold px-1 py-0.5 rounded-tl-[10px] rounded-br-[15px] flex items-center justify-center"
                   >
                     {p.badgeout}
                   </span>
                 )}
               </div>
 
-              <div className="px-2 sm:px-4 pb-2 sm:pb-4">
-                <p className="text-[10px] sm:text-sm text-gray-400 mb-1">Snack</p>
+              <div className="px-1.5 sm:px-3 lg:px-4 pb-2 sm:pb-3 lg:pb-4">
+                <p className="text-[9px] sm:text-xs lg:text-sm text-gray-400 mb-0.5 sm:mb-1">Snack</p>
 
-                <h3 className="font-bold text-[14px] sm:text-lg">{p.title}</h3>
-                <p className="text-[12px] sm:text-sm">{p.subtitle}</p>
+                <h3 className="font-bold text-[12px] sm:text-base lg:text-lg">{p.title}</h3>
+                <p className="text-[11px] sm:text-sm">{p.subtitle}</p>
 
-                <div className="flex items-center gap-1 my-2 text-yellow-400 text-[10px] sm:text-sm">
+                <div className="flex items-center gap-1 my-1 sm:my-2 text-yellow-400 text-[9px] sm:text-xs lg:text-sm">
                   ★ <span className="text-gray-500">({p.rating})</span>
                 </div>
 
-                <p className="text-[10px] sm:text-xs text-gray-500 mb-2 sm:mb-3">By NestFood</p>
+                <p className="text-[9px] sm:text-[10px] lg:text-xs text-gray-500 mb-1.5 sm:mb-2 lg:mb-3">By NestFood</p>
 
                 <div className="flex justify-between items-center">
                   <div>
-                    <span className="font-bold text-[14px] sm:text-lg">{p.price}</span>
-                    <span className="text-[10px] sm:text-sm line-through text-gray-400 ml-1 sm:ml-2">
+                    <span className="font-bold text-[12px] sm:text-base lg:text-lg">{p.price}</span>
+                    <span className="text-[9px] sm:text-xs lg:text-sm line-through text-gray-400 ml-1 sm:ml-2">
                       {p.oldPrice}
                     </span>
                   </div>
 
-                  <button className="bg-[#FF5A5F] hover:bg-[#E94E4E] text-white text-[10px] sm:text-sm px-2 sm:px-4 py-1 sm:py-2 rounded-lg flex items-center gap-1 sm:gap-2">
+                  <button className="bg-[#FF5A5F] hover:bg-[#E94E4E] text-white text-[9px] sm:text-xs lg:text-sm px-1.5 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 rounded-md sm:rounded-lg flex items-center gap-0.5 sm:gap-1 lg:gap-2">
                     <FaShoppingCart />
                     Add
                   </button>

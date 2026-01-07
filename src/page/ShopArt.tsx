@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface Color {
   name: string;
@@ -11,6 +11,28 @@ const ShopArt = () => {
   const [selectedColor, setSelectedColor] = useState<string>('black');
   const [quantity, setQuantity] = useState<number>(1);
   const [selectedImage, setSelectedImage] = useState<string>('/images/product-main.jpg');
+
+  // Static demo product info
+  const productId = 'adbuck-denim-001'
+  const title = 'ADBUCKS Women Denim frock'
+  const price = 500
+
+  const navigate = useNavigate()
+
+  const handleAddToWishList = () => {
+    const wishItem = { id: productId, title, price, qty: quantity, size: selectedSize, color: selectedColor, image: selectedImage }
+    try {
+      const existing = JSON.parse(localStorage.getItem('wishlist') || '[]') as any[]
+      const found = existing.find((it) => it.id === wishItem.id && it.size === wishItem.size && it.color === wishItem.color)
+      if (!found) {
+        existing.push(wishItem)
+        localStorage.setItem('wishlist', JSON.stringify(existing))
+      }
+    } catch (e) {
+      localStorage.setItem('wishlist', JSON.stringify([wishItem]))
+    }
+    navigate('/add-to-wishlist')
+  }
 
   const thumbnails: string[] = [
     '/images/sub1.jpg',
@@ -267,7 +289,7 @@ const ShopArt = () => {
                   <button className="w-full py-2 bg-[#FF5722] text-white rounded-full text-sm font-medium hover:bg-red-600 transition-colors shadow-sm">
                     Buy Now
                   </button>
-                  <button className="w-full py-1.5 bg-white border border-gray-300 text-gray-700 rounded-md text-sm font-normal hover:bg-gray-50 transition-colors">
+                  <button onClick={handleAddToWishList} className="w-full py-1.5 bg-white border border-gray-300 text-gray-700 rounded-md text-sm font-normal hover:bg-gray-50 transition-colors">
                     Add to Wish List
                   </button>
                 </div>

@@ -1,4 +1,5 @@
-import { SyntheticEvent } from 'react'
+import { SyntheticEvent, useState } from 'react'
+import { FaHeart } from 'react-icons/fa'
 
 interface ProductProps {
   name?: string;
@@ -17,6 +18,7 @@ interface ProductCard2Props {
 
 const ProductCard2 = ({ product = {} }: ProductCard2Props) => {
     const { name, price, originalPrice, discount, image, isNew } = product;
+  const [liked, setLiked] = useState(false);
 
   return (
     <div className="group cursor-pointer text-center">
@@ -30,13 +32,24 @@ const ProductCard2 = ({ product = {} }: ProductCard2Props) => {
             e.currentTarget.src = "https://via.placeholder.com/300x400?text=Product+Image";
           }}
         />
+
+        {/* Wishlist / Heart button (right top) - hidden on mobile, visible on md+ */}
+        <button
+          aria-label={liked ? 'Remove from wishlist' : 'Add to wishlist'}
+          aria-pressed={liked}
+          onClick={(e) => { e.stopPropagation(); e.preventDefault(); setLiked(prev => !prev); }}
+          className="hidden md:flex absolute top-3 right-3 w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-md transition-colors"
+        >
+          <FaHeart className={`${liked ? 'text-red-500' : 'text-gray-400'}`} />
+        </button>
+
         {discount && (
-          <span className="absolute top-3 left-3 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">
+          <span className="hidden md:block absolute top-3 left-3 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">
             Sale!
           </span>
         )}
         {isNew && (
-          <span className="absolute top-10 left-3 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded">
+          <span className="hidden md:block absolute top-10 left-3 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded">
             New
           </span>
         )}
@@ -49,8 +62,8 @@ const ProductCard2 = ({ product = {} }: ProductCard2Props) => {
           {originalPrice ? `$${price} – $${originalPrice}` : `$${price}`}
         </div>
 
-        {/* Color options */}
-        <div className="flex items-center justify-center gap-2">
+        {/* Color options - hidden on mobile */}
+        <div className="hidden md:flex items-center justify-center gap-2">
           <span className="w-3 h-3 bg-black rounded-full border" />
           <span className="w-3 h-3 bg-[#e9cdb7] rounded-full border" />
           <span className="text-sm text-gray-600">+3</span>

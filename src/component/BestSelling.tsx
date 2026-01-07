@@ -1,45 +1,42 @@
-import { useState } from "react";
 import { FaStar, FaArrowLeft, FaArrowRight, FaPlus } from "react-icons/fa";
 
 interface Product {
-  category: string;
+  vendor: string;
   title: string;
   price: number;
   image: string;
 }
 
 const BestSelling = () => {
-  const [active, setActive] = useState<string>("Men");
-
   const products: Product[] = [
     {
-      category: "Men",
-      title: "Streetwear Essentials",
+      vendor: "By Rock",
+      title: "Saree",
       price: 300,
-      image: "/images/men-home.png",
+      image: "/public/women-home1.png",
     },
     {
-      category: "Women",
-      title: "Ethnic Fusion",
+      vendor: "By Rock",
+      title: "Saree",
       price: 250,
-      image: "/images/women-home.png",
+      image: "/public/women-home2.png",
     },
     {
-      category: "Boy",
-      title: "Active Playwear",
+      vendor: "By Rock",
+      title: "Saree",
       price: 350,
-      image: "/images/boy-home.png",
+      image: "/public/women-home3.png",
     },
     {
-      category: "Girl",
+      vendor: "Girl Category",
       title: "Festive Wear",
       price: 500,
-      image: "/images/girl-home.png",
+      image: "/public/women-home4.png",
     },
   ];
 
   return (
-    <section className="bg-[#E84F300A] py-12 sm:py-16 lg:py-20 relative overflow-hidden">
+    <section className="bg-[#E84F300A] py-12 sm:py-16 lg:py-20 relative overflow-hidden over lg:mt-0 -mt-60">
       {/* Background Decorations */}
       {/* Top Right */}
       <img 
@@ -50,6 +47,7 @@ const BestSelling = () => {
           width: '450px',
           height: '420px',
           top: '0px',
+          backgroundPosition: 'top center',
           right: '-200px',
           opacity: 0.5
         }}
@@ -71,66 +69,53 @@ const BestSelling = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 
         {/* Title */}
-        <h2 className="text-center text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 sm:mb-10">
+        <h2 className="text-center text-2xl sm:text-3xl lg:text-5xl font-bold mb-8 sm:mb-12 lg:mb-16 lg:pl-19">
           Best Selling Product
         </h2>
-
-        {/* Category Tabs */}
-        <div className="flex justify-center mb-10 sm:mb-14">
-          <div className="bg-green-500 rounded-full p-1 flex gap-1 sm:gap-2 flex-wrap justify-center">
-            {["Men", "Women", "Boy", "Girl"].map((item) => (
-              <button
-                key={item}
-                onClick={() => setActive(item)}
-                className={`px-4 sm:px-6 py-1.5 rounded-full text-xs sm:text-sm font-medium transition
-                ${active === item ? "bg-white text-black" : "text-white"}`}
-              >
-                {item}
-              </button>
-            ))}
-          </div>
-        </div>
 
         {/* Cards Wrapper */}
         <div className="relative">
 
           {/* Left Arrow */}
-           <button className="hidden lg:block absolute -left-8 xl:-left-14 top-1/2 -translate-y-1/2 w-10 h-10 bg-transparent border-none flex items-center justify-center z-[100]">
-            <FaArrowLeft className="text-gray-700" size={16} />
+           <button className="hidden lg:block absolute left-33 xl:left-34 top-30 -translate-y-1/2 
+            w-7 h-7 bg-white rounded-[15px] border-none 
+            flex items-center justify-center shadow-md z-[100] pl-1.5 ">
+            
+            <FaArrowLeft className="text-black" size={16} />
           </button>
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 pt-6 sm:pt-8 lg:pt-12">
+
+        {/* Cards Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-0 justify-center">
           {products.map((item, index) => (
             <div
               key={index}
-              className="bg-white shadow-lg rounded-xl sm:rounded-2xl overflow-visible relative hover:shadow-xl transition-shadow mx-auto w-full"
-              style={{ minHeight: "280px", position: 'relative', top: '0' }}
+              className="bg-white shadow-lg rounded-2xl relative transition-shadow mx-auto w-full"
+              style={{ maxWidth: "220px", marginLeft: window.innerWidth >= 1024 ? "140px" : "0px" }}
             >
-             {/* Image Section */}
-              <div className="bg-[#efaaac] h-[120px] sm:h-[160px] lg:h-[180px] rounded-t-xl sm:rounded-t-2xl relative overflow-visible">
+              {/* Image Section */}
+            <div className="bg-[#efaaac] h-[120px] sm:h-[180px] lg:h-[170px] 
+                        rounded-t-2xl 
+                        flex items-center justify-center overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="absolute left-1/2 -translate-x-1/2 block object-contain pointer-events-none w-[180px] sm:w-[240px] lg:w-[280px] h-[150px] sm:h-[150px] lg:h-[220px]"
-                  style={{ top: '-40px', zIndex: 50 }}
+                className="w-full h-full object-cover"
                 />
-              
               </div>
 
-
               {/* Content */}
-              <div className="p-3 sm:p-4 lg:p-5 text-left">
-                <p className="text-[10px] sm:text-xs text-gray-500 mb-1">
-                  {item.category} Category
+              <div className="p-4 text-left">
+                <p className="text-xs text-gray-500 mb-1">
+                  {item.vendor}
                 </p>
 
-                <h3 className="font-semibold text-sm sm:text-base lg:text-lg mb-1 sm:mb-2">
+                <h3 className="font-semibold text-base mb-2">
                   {item.title}
                 </h3>
 
                 {/* Stars */}
-                <div className="flex justify-left gap-0.5 sm:gap-1 mb-2 sm:mb-3 lg:mb-4 text-[#F6B76F]">
+                <div className="flex justify-left gap-0.5 mb-3 text-[#F6B76F]">
                   {[...Array(5)].map((_, i) => (
                     <FaStar key={i} size={10} className="sm:w-3 sm:h-3 lg:w-3.5 lg:h-3.5" />
                   ))}
@@ -138,12 +123,12 @@ const BestSelling = () => {
 
                 {/* Price */}
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-sm sm:text-base">
+                  <span className="font-bold text-base">
                     Rs {item.price}
                   </span>
 
-                  <button className="bg-green-500 w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 rounded-full text-white flex items-center justify-center hover:bg-green-600 transition-colors">
-                    <FaPlus size={10} className="sm:w-3 sm:h-3 lg:w-3.5 lg:h-3.5" />
+                  <button className="bg-green-500 w-9 h-9 rounded-full text-white flex items-center justify-center hover:bg-green-600 transition-colors">
+                    <FaPlus size={12} />
                   </button>
                 </div>
               </div>
@@ -151,10 +136,14 @@ const BestSelling = () => {
           ))}
           </div>
 
-          {/* Right Arrow */}
-          <button className="hidden lg:block absolute -right-8 xl:-right-14 top-1/2 -translate-y-1/2 bg-transparent border-none w-10 h-10 flex items-center justify-center z-[100]">
-  <FaArrowRight className="text-gray-700" size={16} />
-</button>
+         {/* Right Arrow */}
+        <button className="hidden lg:block absolute -right-8 xl:right-30 top-30 -translate-y-1/2 
+          w-7 h-7 bg-white rounded-[15px] border-none 
+          flex items-center justify-center shadow-md z-[100] pl-1.5">
+
+          <FaArrowRight className="text-black" size={16} />
+        </button>
+
 
         </div>
 
